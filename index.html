@@ -7,8 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H40V40H0V0Z' stroke='%23d1d5db' stroke-width='0.5'/%3E%3C/svg%3E");
-      background-size: 40px 40px;
+      background-color: #f3f4f6;
     }
     .carousel-track {
       display: flex;
@@ -25,126 +24,74 @@
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
-
+<body class="text-gray-800 font-sans leading-relaxed">
   <!-- language switch -->
-  <div class="max-w-4xl mx-auto px-4 pt-4 text-right text-sm">
+  <div class="max-w-4xl mx-auto px-4 pt-4 text-right text-sm fixed top-4 right-4 z-50 bg-gray-100 rounded-lg p-2 shadow">
     <a href="?lang=he" class="ml-4 text-blue-600 hover:underline">עברית</a>
     <a href="?lang=en" class="ml-4 text-blue-600 hover:underline">English</a>
-    <a href="?lang=ru" class="ml-4 text-blue-600 hover:underline">Русский</a>
+    <a href="?lang=ru" class="text-blue-600 hover:underline">Русский</a>
   </div>
 
   <!-- main content container -->
-  <div id="content" class="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 bg-white shadow-xl rounded-2xl mt-6 md:mt-10" dir="rtl"></div>
+  <div id="content" class="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 bg-gray-100 shadow-xl rounded-2xl mt-20 md:mt-24" dir="rtl"></div>
 
   <script>
     const translations = {
       he: {
-        dir: 'rtl',
-        logoAlt: 'לוגו',
+        dir: 'rtl', logoAlt: 'לוגו',
         title: 'שירות הנדסה בתחום צנרת',
         subtitle: 'תשקים, מודלים ולוויי ייצור',
         fastDelivery: '📦 זמני אספקה מהירים – החל מ־3 ימים מרגע קבלת השרטוטים',
         block1Title: 'שרטוטים ISO',
-        block1Items: [
-          'יצירת דיאגרמות צנרת ושרטוטים איזומטריים לייצור',
-          'הכנת כתב כמויות (BOQ) להזמנת חומרים',
-          'תמיכה בייצור בזיהוי בעיות במהלך ההתקנה',
-          'עובדים עם כל הפורמטים STEP, NWD, PDF, DWG, DXF'
-        ],
+        block1Items: [ 'יצירת דיאגרמות צנרת ושרטוטים איזומטריים לייצור', 'הכנת כתב כמויות (BOQ) להזמנת חומרים', 'תמיכה בייצור בזיהוי בעיות במהלך ההתקנה', 'עובדים עם כל הפורמטים STEP, NWD, PDF, DWG, DXF' ],
         block2Title: 'דוגמה לפי תשקים',
-        block2Items: [
-          'מידול צינורות המבוסס על P&ID, שרטוטים או תמונות',
-          'תכנון צנרת מבוצע בסביבת BIM',
-          'LOD 400 עבוד הרמה פרט',
-          'SolidWorks, AutoCAD, Navisworks'
-        ],
+        block2Items: [ 'מידול צינורות המבוסס על P&ID, שרטוטים או תמונות', 'תכנון צנרת מבוצע בסביבת BIM', 'LOD 400 עבוד הרמה פרט', 'SolidWorks, AutoCAD, Navisworks' ],
         call: 'שלח לנו שרטוט או שאלה – ותקבל מענה תוך שעות ספורות!',
         cta: 'לבקש הצעת מחיר',
         whoTitle: 'למי השירות מתאים?',
-        whoList: [
-          'קבלני אינסטלציה ובינוי',
-          'מתקינים עצמאיים בתחום צנרת תעשייתית',
-          'חברות שאין להן מחלקת הנדסה פנימית',
-          'יזמים שזקוקים לתמיכה הנדסית מהירה וממוקדת'
-        ],
+        whoList: [ 'קבלני אינסטלציה ובינוי', 'מתקינים עצמאיים בתחום צנרת תעשייתית', 'חברות שאין להן מחלקת הנדסה פנימית', 'יזמים שזקוקים לתמיכה הנדסית מהירה וממוקדת' ],
         galleryTitle: 'דוגמאות מהשטח',
         contact: 'צור קשר:',
         email: 'email: isratechmetal@gmail.com 📩',
-        whatsapp: 'WhatsApp: 054-462-10-50 📞',
+        whatsapp: 'WhatsApp: 054-462-10-50',
         location: 'אנחנו עובדים בכל ישראל'
-          }
-    
-    ,
+      },
       ru: {
-        dir: 'ltr',
-        logoAlt: 'Логотип',
+        dir: 'ltr', logoAlt: 'Логотип',
         title: 'Инженерные услуги в области трубопроводов',
         subtitle: 'Чертежи, 3D-модели и сопровождение производства',
         fastDelivery: '📦 Быстрая поставка — от 3 рабочих дней с момента получения чертежей',
         block1Title: 'Чертежи ISO',
-        block1Items: [
-          'Создание изометрических чертежей и схем трубопроводов для производства',
-          'Составление спецификаций (BOQ) для закупки материалов',
-          'Поддержка монтажа и выявление проблем при установке',
-          'Работа со всеми форматами: STEP, NWD, PDF, DWG, DXF'
-        ],
+        block1Items: [ 'Создание изометрических чертежей и схем трубопроводов для производства', 'Составление спецификаций (BOQ) для закупки материалов', 'Поддержка монтажа и выявление проблем при установке', 'Работа со всеми форматами: STEP, NWD, PDF, DWG, DXF' ],
         block2Title: 'Моделирование по эскизам',
-        block2Items: [
-          '3D-моделирование трубопроводов по P&ID, эскизам или фото',
-          'Проектирование в BIM-среде',
-          'LOD 400 для подробных чертежей',
-          'SolidWorks, AutoCAD, Navisworks'
-        ],
+        block2Items: [ '3D-моделирование трубопроводов по P&ID, эскизам или фото', 'Проектирование в BIM-среде', 'LOD 400 для подробных чертежей', 'SolidWorks, AutoCAD, Navisworks' ],
         call: 'Отправьте нам эскиз или вопрос — получите ответ в течение нескольких часов!',
         cta: 'Запросить предложение',
         whoTitle: 'Кому подойдёт эта услуга?',
-        whoList: [
-          'Подрядчики по сантехнике и строительству',
-          'Независимые монтажники промышленных трубопроводов',
-          'Компании без собственного инженерного отдела',
-          'Стартапы и застройщики, которым нужна быстрая техническая поддержка'
-        ],
+        whoList: [ 'Подрядчики по сантехнике и строительству', 'Независимые монтажники промышленных трубопроводов', 'Компании без собственного инженерного отдела', 'Стартапы и застройщики, которым нужна быстрая техническая поддержка' ],
         galleryTitle: 'Примеры выполненных работ',
         contact: 'Контакты:',
         email: 'Эл. почта: isratechmetal@gmail.com 📩',
-        whatsapp: 'WhatsApp: +972-54-462-1050 📞',
+        whatsapp: 'WhatsApp: +972-54-462-1050',
         location: 'Работаем по всему Израилю'
-      
-    },
+      },
       en: {
-        dir: 'ltr',
-        logoAlt: 'Logo',
+        dir: 'ltr', logoAlt: 'Logo',
         title: 'Engineering Services for Piping Systems',
         subtitle: 'Drawings, 3D Models, and Production Support',
         fastDelivery: '📦 Fast delivery — starting from 3 days after receiving drawings',
         block1Title: 'ISO Drawings',
-        block1Items: [
-          'Creation of piping diagrams and isometric drawings for production',
-          'Preparation of bill of quantities (BOQ) for materials',
-          'Production support and installation issue identification',
-          'Works with all formats: STEP, NWD, PDF, DWG, DXF'
-        ],
+        block1Items: [ 'Creation of piping diagrams and isometric drawings for production', 'Preparation of bill of quantities (BOQ) for materials', 'Production support and installation issue identification', 'Works with all formats: STEP, NWD, PDF, DWG, DXF' ],
         block2Title: 'Modeling Based on Sketches',
-        block2Items: [
-          '3D pipe modeling based on P&ID, sketches, or photos',
-          'Piping design in BIM environment',
-          'LOD 400 for detailed design',
-          'SolidWorks, AutoCAD, Navisworks'
-        ],
+        block2Items: [ '3D pipe modeling based on P&ID, sketches, or photos', 'Piping design in BIM environment', 'LOD 400 for detailed design', 'SolidWorks, AutoCAD, Navisworks' ],
         call: 'Send us a sketch or question — get a reply within a few hours!',
         cta: 'Request a Quote',
         whoTitle: 'Who Is This Service For?',
-        whoList: [
-          'Plumbing and construction contractors',
-          'Independent industrial piping installers',
-          'Companies without an internal engineering department',
-          'Entrepreneurs who need fast, targeted engineering support'
-        ],
+        whoList: [ 'Plumbing and construction contractors', 'Independent industrial piping installers', 'Companies without an internal engineering department', 'Entrepreneurs who need fast, targeted engineering support' ],
         galleryTitle: 'Project Samples',
         contact: 'Contact:',
         email: 'Email: isratechmetal@gmail.com 📩',
-        whatsapp: 'WhatsApp: +972-54-462-1050 📞',
+        whatsapp: 'WhatsApp: +972-54-462-1050',
         location: 'We work throughout Israel'
       }
     };
@@ -156,7 +103,7 @@
 
     content.innerHTML = `
       <header class="mb-6 text-center relative">
-        <img src="logo.png" alt="${t.logoAlt}" class="h-28 w-28 absolute ${t.dir === 'rtl' ? 'right-0' : 'left-0'} top-0" />
+        <img src="logo.png" alt="${t.logoAlt}" class="h-28 w-28 mx-auto mb-4" />
         <h1 class="text-4xl sm:text-6xl font-bold text-blue-800 mb-1">${t.title}</h1>
         <p class="text-base sm:text-lg text-gray-600">${t.subtitle}</p>
       </header>
@@ -165,15 +112,15 @@
         <p class="text-sm sm:text-base text-gray-700">${t.fastDelivery}</p>
       </div>
 
-      <section class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-center">
         <div class="bg-blue-50 rounded-xl p-5 shadow-sm">
-          <h2 class="text-lg font-semibold text-blue-700 mb-2">${t.block1Title}</h2>
+          <h2 class="text-xl font-semibold text-blue-700 mb-2">${t.block1Title}</h2>
           <ul class="list-disc list-inside text-gray-700">
             ${t.block1Items.map(item => `<li>${item}</li>`).join('')}
           </ul>
         </div>
         <div class="bg-green-50 rounded-xl p-5 shadow-sm">
-          <h2 class="text-lg font-semibold text-green-700 mb-2">${t.block2Title}</h2>
+          <h2 class="text-xl font-semibold text-green-700 mb-2">${t.block2Title}</h2>
           <ul class="list-disc list-inside text-gray-700">
             ${t.block2Items.map(item => `<li>${item}</li>`).join('')}
           </ul>
@@ -184,16 +131,13 @@
         <p class="text-gray-600 mb-2">${t.call}</p>
         <div class="flex justify-center">
           <a href="https://wa.me/972544621050" target="_blank"
-             class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full shadow-md flex items-center gap-2 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 fill-current" viewBox="0 0 32 32">
-              <path d="M16.002 3.003c-7.18 0-13 5.82-13 13 0 2.303.604 4.547 1.75 6.532l-1.833 6.43 6.607-1.73c1.888 1.015 4.02 1.55 6.476 1.55 7.18 0 13-5.82 13-13s-5.82-13-13-13z"/>
-            </svg>
+             class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transition">
             ${t.cta}
           </a>
         </div>
       </div>
 
-      <section class="mt-12 bg-gray-100 rounded-xl p-5 text-sm text-gray-800 text-center">
+      <section class="mt-12 bg-white rounded-xl p-5 text-sm text-gray-800 text-center">
         <h2 class="text-3xl font-extrabold text-gray-900 mb-2">${t.whoTitle}</h2>
         <div class="space-y-1">
           ${t.whoList.map(p => `<p>${p}</p>`).join('')}
@@ -204,7 +148,7 @@
         <h2 class="text-lg font-semibold text-gray-900 mb-4">${t.galleryTitle}</h2>
         <div class="carousel-wrapper">
           <div class="carousel-track">
-            ${[1,6,2,3,4,5].map(i => `<img src="pic/${i}.jpeg" alt="sample ${i}" class="h-40 rounded shadow-sm" />`).join('')}
+            ${[1,2,3,4,5,1,2,3,4,5].map(i => `<img src="pic/${i}.jpeg" alt="sample ${i}" class="h-40 rounded shadow-sm" />`).join('')}
           </div>
         </div>
       </section>
@@ -219,3 +163,4 @@
   </script>
 </body>
 </html>
+
