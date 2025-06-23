@@ -1,33 +1,18 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="he" id="html-root">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K9HW4B9LGX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-K9HW4B9LGX');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>I.T.M.</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      background-color: #f3f4f6;
-    }
+    body { background-color: #f3f4f6; }
     .carousel-track {
       display: flex;
       gap: 1rem;
       animation: scroll 30s linear infinite;
     }
-    .carousel-wrapper {
-      overflow: hidden;
-      direction: ltr;
-    }
+    .carousel-wrapper { overflow: hidden; direction: ltr; }
     @keyframes scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
@@ -35,195 +20,195 @@
   </style>
 </head>
 <body class="text-gray-800 font-sans leading-relaxed">
-  <div class="max-w-4xl mx-auto px-4 pt-4 text-right text-sm fixed top-4 right-4 z-50 bg-gray-100 rounded-lg p-2 shadow">
-    <a href="?lang=he" class="ml-4 text-blue-600 hover:underline">עברית</a>
-    <a href="?lang=en" class="ml-4 text-blue-600 hover:underline">English</a>
-    <a href="?lang=ru" class="text-blue-600 hover:underline">Русский</a>
+
+<!-- Языки -->
+<div class="max-w-4xl mx-auto px-4 pt-4 text-right text-sm fixed top-4 right-4 z-50 bg-gray-100 rounded-lg p-2 shadow">
+  <a href="?lang=he" class="ml-4 text-blue-600 hover:underline">עברית</a>
+  <a href="?lang=en" class="ml-4 text-blue-600 hover:underline">English</a>
+  <a href="?lang=ru" class="text-blue-600 hover:underline">Русский</a>
+</div>
+
+<!-- Контент -->
+<div id="content" class="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 bg-gray-100 shadow-xl rounded-2xl mt-20 md:mt-24"></div>
+
+<script>
+const lang = new URLSearchParams(window.location.search).get("lang") || "he";
+document.getElementById("html-root").lang = lang;
+document.getElementById("html-root").dir = (lang === "he") ? "rtl" : "ltr";
+
+// 💬 ИВРИТ
+const heContent = `
+  <header class="text-center mb-6">
+    <img src="logo.png" alt="לוגו" class="h-28 w-28 mx-auto mb-4" />
+    <h1 class="text-4xl sm:text-6xl font-bold text-blue-800 mb-2">שירות הנדסה בתחום צנרת</h1>
+    <p class="text-2xl sm:text-3xl text-gray-600 mt-6">תשקים, מודלים ולווי ייצור</p>
+  </header>
+
+  <div class="text-center mb-6">
+    <p class="text-xl text-gray-700">📦 זמני אספקה מהירים – החל מ־3 ימים מרגע קבלת השרטוטים</p>
   </div>
 
-  <div id="content" class="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 bg-gray-100 shadow-xl rounded-2xl mt-20 md:mt-24" dir="rtl"></div>
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-center">
+    <div class="bg-blue-50 rounded-xl p-5 shadow-sm">
+      <h2 class="text-xl font-semibold text-blue-700 mb-2">שרטוטים ISO</h2>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>יצירת דיאגרמות ושרטוטים איזומטריים</li>
+        <li>הכנת כתב כמויות (BOQ)</li>
+        <li>תמיכה בזיהוי בעיות בהרכבה</li>
+        <li>עבודה עם STEP, DWG, PDF, DXF</li>
+      </ul>
+    </div>
+    <div class="bg-green-50 rounded-xl p-5 shadow-sm">
+      <h2 class="text-xl font-semibold text-green-700 mb-2">מודלים לפי P&ID</h2>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>מידול לפי שרטוטים או תמונות</li>
+        <li>תכנון ב־BIM ברמת LOD 400</li>
+        <li>SolidWorks, AutoCAD, Navisworks</li>
+      </ul>
+    </div>
+  </section>
 
-  <script>
-    const translations = {
-      he: {
-        dir: 'rtl', logoAlt: 'לוגו',
-        title: 'שירות הנדסה בתחום צנרת',
-        subtitle: 'תשקים, מודלים ולוויי ייצור',
-        fastDelivery: '📦 זמני אספקה מהירים – החל מ־3 ימים מרגע קבלת השרטוטים',
-        formTitle: 'השאירו פרטים ונחזור אליכם',
-        formName: 'שם מלא',
-        formPhone: 'טלפון',
-        formDesc: 'תיאור או שאלה',
-        formFile: 'קובץ מצורף',
-        formBtn: 'שלח פנייה',
-        block1Title: 'שרטוטים ISO',
-        block1Items: [
-          'יצירת דיאגרמות צנרת ושרטוטים איזומטריים לייצור',
-          'הכנת כתב כמויות (BOQ) להזמנת חומרים',
-          'תמיכה בייצור בזיהוי בעיות במהלך ההתקנה',
-          'עובדים עם כל הפורמטים STEP, NWD, PDF, DWG, DXF'
-        ],
-        block2Title: 'דוגמה לפי תשקים',
-        block2Items: [
-          'מידול צינורות המבוסס על P&ID, שרטוטים או תמונות',
-          'תכנון צנרת מבוצע בסביבת BIM',
-          'LOD 400 עבוד הרמה פרט',
-          'SolidWorks, AutoCAD, Navisworks'
-        ],
-        whoTitle: 'למי השירות מתאים?',
-        whoList: [
-          'קבלני אינסטלציה ובינוי',
-          'מתקינים עצמאיים בתחום צנרת תעשייתית',
-          'חברות שאין להן מחלקת הנדסה פנימית',
-          'יזמים שזקוקים לתמיכה הנדסית מהירה וממוקדת'
-        ],
-        galleryTitle: 'דוגמאות מהשטח',
-        contact: 'צור קשר:',
-        email: 'email: isratechmetal@gmail.com 📩',
-        whatsapp: 'WhatsApp: 054-462-10-50',
-        location: 'אנחנו עובדים בכל ישראל'
-      },
-      ru: {
-        dir: 'ltr', logoAlt: 'Логотип',
-        title: 'Инженерные услуги в области трубопроводов',
-        subtitle: 'Чертежи, 3D-модели и сопровождение производства',
-        fastDelivery: '📦 Быстрая поставка — от 3 рабочих дней с момента получения чертежей',
-        formTitle: 'Оставьте заявку — мы свяжемся с вами',
-        formName: 'Имя',
-        formPhone: 'Телефон',
-        formDesc: 'Описание задачи',
-        formFile: 'Прикрепить файл',
-        formBtn: 'Отправить',
-        block1Title: 'Чертежи ISO',
-        block1Items: [
-          'Создание изометрических чертежей и схем трубопроводов для производства',
-          'Составление спецификаций (BOQ) для закупки материалов',
-          'Поддержка монтажа и выявление проблем при установке',
-          'Работа со всеми форматами: STEP, NWD, PDF, DWG, DXF'
-        ],
-        block2Title: 'Моделирование по эскизам',
-        block2Items: [
-          '3D-моделирование труб по P&ID, чертежам или фото',
-          'Проектирование в BIM-среде',
-          'LOD 400 для точных чертежей',
-          'SolidWorks, AutoCAD, Navisworks'
-        ],
-        whoTitle: 'Кому подойдёт эта услуга?',
-        whoList: [
-          'Подрядчики по сантехнике и строительству',
-          'Независимые монтажники промышленных трубопроводов',
-          'Компании без собственного инженерного отдела',
-          'Стартапы и застройщики, которым нужна быстрая техническая поддержка'
-        ],
-        galleryTitle: 'Примеры выполненных работ',
-        contact: 'Контакты:',
-        email: 'Эл. почта: isratechmetal@gmail.com 📩',
-        whatsapp: 'WhatsApp: +972-54-462-1050',
-        location: 'Работаем по всему Израилю'
-      },
-      en: {
-        dir: 'ltr', logoAlt: 'Logo',
-        title: 'Engineering Services for Piping Systems',
-        subtitle: 'Drawings, 3D Models, and Production Support',
-        fastDelivery: '📦 Fast delivery — starting from 3 days after receiving drawings',
-        formTitle: 'Leave your details and we will contact you',
-        formName: 'Full Name',
-        formPhone: 'Phone Number',
-        formDesc: 'Description or Question',
-        formFile: 'Attach a file',
-        formBtn: 'Send Request',
-        block1Title: 'ISO Drawings',
-        block1Items: [
-          'Creation of piping diagrams and isometric drawings for production',
-          'Preparation of bill of quantities (BOQ) for materials',
-          'Production support and installation issue identification',
-          'Works with all formats: STEP, NWD, PDF, DWG, DXF'
-        ],
-        block2Title: 'Modeling Based on Sketches',
-        block2Items: [
-          '3D pipe modeling based on P&ID, sketches, or photos',
-          'Piping design in BIM environment',
-          'LOD 400 for detailed design',
-          'SolidWorks, AutoCAD, Navisworks'
-        ],
-        whoTitle: 'Who Is This Service For?',
-        whoList: [
-          'Plumbing and construction contractors',
-          'Independent industrial piping installers',
-          'Companies without an internal engineering department',
-          'Entrepreneurs who need fast, targeted engineering support'
-        ],
-        galleryTitle: 'Project Samples',
-        contact: 'Contact:',
-        email: 'Email: isratechmetal@gmail.com 📩',
-        whatsapp: 'WhatsApp: +972-54-462-1050',
-        location: 'We work throughout Israel'
-      }
-    };
+  <div class="text-center my-6">
+    <a href="https://wa.me/972544621050" target="_blank"
+       class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transition">
+      WhatsApp — שלח הודעה
+    </a>
+  </div>
 
-    const lang = new URLSearchParams(window.location.search).get("lang") || "he";
-    const t = translations[lang];
-    document.documentElement.dir = t.dir;
+  <section class="mt-12 bg-white rounded-xl p-5 text-sm text-gray-800 text-center">
+    <h2 class="text-2xl font-bold text-gray-900 mb-2">על החברה</h2>
+    <p class="whitespace-pre-line text-gray-700 leading-relaxed">
+חברת הנדסה המתמחה ביצירת מודלים תלת־ממדיים של מערכות צנרת וקונסטרוקציות למתקנים תעשייתיים. אנו מפתחים תיעוד הנדסי, מודלים דיגיטליים ופתרונות חישוב עבור לקוחות בארץ ובעולם.
 
-    const content = document.getElementById("content");
-    content.innerHTML = `
-      <header class="mb-6 text-center relative">
-        <img src="logo.png" alt="${t.logoAlt}" class="h-28 w-28 mx-auto mb-4" />
-        <h1 class="text-4xl sm:text-6xl font-bold text-blue-800 mb-1">${t.title}</h1>
-        <p class="text-base sm:text-lg text-gray-600">${t.subtitle}</p>
-      </header>
-      <div class="text-center mb-6">
-        <p class="text-sm sm:text-base text-gray-700">${t.fastDelivery}</p>
+החברה עושה שימוש בכלים מקצועיים כמו AutoCAD Plant 3D, Navisworks, SolidWorks ו-Tekla ליצירת מודלים מדויקים, שרטוטים איזומטריים, BOQ וספריות רכיבים מותאמות.
+
+מבצעים חישובים סטטיים וסייסמיים לעמידות צנרת וקונסטרוקציות בהתאם לתקנים בינלאומיים ואזוריים.
+
+הפרויקטים מבוצעים מקצה לקצה — משלב התכנון ועד ההרכבה, תוך דגש על פתרונות הנדסיים אמינים וחסכוניים.
+    </p>
+  </section>
+
+  <footer class="mt-10 border-t pt-6 text-sm text-gray-600 text-center">
+    <p><strong>צור קשר:</strong></p>
+    <p>isratechmetal@gmail.com</p>
+    <p>054-462-10-50</p>
+    <p>עובדים בכל הארץ</p>
+  </footer>
+`;
+
+// 💬 АНГЛ + РУССКИЙ
+const contentData = {
+  en: {
+    title: 'Engineering Services for Piping',
+    subtitle: 'Drawings, 3D Models & Fabrication Support',
+    fast: '📦 Fast delivery – from 3 business days',
+    isoTitle: 'ISO Drawings',
+    iso: [
+      'Creation of piping diagrams and isometric drawings',
+      'BOQ preparation for materials',
+      'Support during installation',
+      'Formats: STEP, DWG, PDF, DXF'
+    ],
+    modelTitle: '3D Modeling',
+    model: [
+      'Based on P&ID, drawings or photos',
+      'BIM environment, LOD 400',
+      'Tools: SolidWorks, AutoCAD, Navisworks'
+    ],
+    about: 'About the Company',
+    aboutText: `An engineering company specializing in 3D modeling of piping systems and support structures for industrial facilities. We develop design documentation, digital models, and analysis for clients in Israel and abroad.
+We use AutoCAD Plant 3D, Navisworks, SolidWorks, and Tekla to create precise 3D models, isometric drawings, BOQs, and custom libraries.
+We perform static and seismic strength calculations for pipelines and steel structures, especially for facilities in seismic regions.
+Projects are carried out end-to-end — from design to installation — with practical, cost-effective, standards-compliant engineering solutions.`,
+    contact: 'Contact:',
+    phone: '+972-54-462-1050',
+    email: 'isratechmetal@gmail.com',
+    whatsapp: 'Contact us on WhatsApp',
+    location: 'Работаем по всему Израилю'
+  },
+  ru: {
+    title: 'Проектирование и расчёты трубопроводов',
+    subtitle: 'Чертежи, 3D-модели и сопровождение производства',
+    fast: '📦 Быстрая поставка — от 3 рабочих дней',
+    isoTitle: 'Чертежи ISO',
+    iso: [
+          'Изометрические чертежи и схемы трубопровода',
+          'BOQ и спецификации',
+          'Сопровождение монтажа на объекте',
+          'Форматы: STEP, DWG, PDF, DXF'
+    ],
+    modelTitle: '3D-моделирование',
+    model: [
+          'Моделирование по чертежам, эскизам, фото',
+          'Проектирование в среде BIM',
+          'Составление библиотек',
+          'LOD 400—fabrication and assembly',
+          'AutoCAD, SolidWorks, Navisworks'
+    ],
+    about: 'О компании',
+    aboutText: `Инжиниринговая компания, специализирующаяся на 3D-моделировании трубопроводных систем и опорных конструкций для промышленных объектов. Основное направление — разработка проектной документации, цифровых моделей и расчётов для предприятий в Израиле и за рубежом.  
+В работе используются профессиональные инструменты: AutoCAD Plant 3D, Navisworks, SolidWorks, Tekla, что позволяет создавать точные 3D-модели, изометрические чертежи, спецификации (BOQ), а также собственные библиотеки компонентов.  
+Компания выполняет статические и сейсмические расчёты прочности трубопроводов и металлоконструкций, что особенно актуально для промышленных объектов в сейсмоактивных регионах.  
+Проекты реализуются с учётом всех этапов: от проектирования до монтажа. Практический подход и понимание производственных процессов позволяют предлагать надёжные и экономически обоснованные инженерные решения, соответствующие международным и местным стандартам.`,
+    contact: 'Контакты:',
+    phone: '+972-54-462-1050',
+    email: 'isratechmetal@gmail.com',
+    whatsapp: 'Свяжитесь с нами',
+    location: 'Работаем по всему Израилю'
+  }
+};
+
+if (lang === 'he') {
+  document.getElementById("content").innerHTML = heContent;
+} else {
+  const t = contentData[lang] || contentData["en"];
+  document.getElementById("content").innerHTML = `
+    <header class="text-center mb-6">
+      <img src="logo.png" alt="Logo" class="h-48 w-48 mx-auto mb-4" />
+      <h1 class="text-3xl sm:text-5xl font-bold text-blue-800 mb-2">${t.title}</h1>
+      <p class="text-2xl sm:text-3xl text-gray-600 mt-6">${t.subtitle}</p>
+    </header>
+
+    <div class="text-center mb-6">
+      <p class="text-xl text-gray-700">${t.fast}</p>
+    </div>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-center">
+      <div class="bg-blue-50 rounded-xl p-5 shadow-sm">
+        <h2 class="text-xl font-semibold text-blue-700 mb-2">${t.isoTitle}</h2>
+        <ul class="list-disc list-inside text-gray-700">
+          ${t.iso.map(item => `<li>${item}</li>`).join('')}
+        </ul>
       </div>
-      <section class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-center">
-        <div class="bg-blue-50 rounded-xl p-5 shadow-sm">
-          <h2 class="text-xl font-semibold text-blue-700 mb-2">${t.block1Title}</h2>
-          <ul class="list-disc list-inside text-gray-700">${t.block1Items.map(i => `<li>${i}</li>`).join('')}</ul>
-        </div>
-        <div class="bg-green-50 rounded-xl p-5 shadow-sm">
-          <h2 class="text-xl font-semibold text-green-700 mb-2">${t.block2Title}</h2>
-          <ul class="list-disc list-inside text-gray-700">${t.block2Items.map(i => `<li>${i}</li>`).join('')}</ul>
-        </div>
- 
-</section>
-<div class="text-center my-6">
-  <a href="https://wa.me/972544621050" target="_blank"
-     class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transition">
-    Call me on WhatsApp
-  </a>
-</div>
-</section>
+      <div class="bg-green-50 rounded-xl p-5 shadow-sm">
+        <h2 class="text-xl font-semibold text-green-700 mb-2">${t.modelTitle}</h2>
+        <ul class="list-disc list-inside text-gray-700">
+          ${t.model.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+      </div>
+    </section>
 
-      <section class="mt-12 bg-white rounded-xl p-5 text-sm text-gray-800 text-center">
-        <h2 class="text-3xl font-extrabold text-gray-900 mb-2">${t.whoTitle}</h2>
-        <div class="space-y-1">${t.whoList.map(p => `<p>${p}</p>`).join('')}</div>
-      </section>
-      <section class="mt-12 text-center">
-        <h2 class="text-lg font-semibold text-gray-900 mb-4">${t.galleryTitle}</h2>
-        <div class="carousel-wrapper">
-          <div class="carousel-track">
-            ${[1,2,3,4,5,6].map(i => `<img src="pic/${i}.jpeg" alt="sample ${i}" class="h-40 rounded shadow-sm" />`).join('')}
-          </div>
-        </div>
-      </section>
-       </section>
-      <section class="mt-10 bg-white rounded-xl p-6 shadow text-center">
-        <h2 class="text-xl font-bold mb-4">${t.formTitle}</h2>
-        <form class="space-y-4" onsubmit="alert('Форма отправлена (демо).'); return false;">
-          <input type="text" placeholder="${t.formName}" class="w-full p-3 border rounded-md" required />
-          <input type="tel" placeholder="${t.formPhone}" class="w-full p-3 border rounded-md" required />
-          <textarea placeholder="${t.formDesc}" class="w-full p-3 border rounded-md" rows="4"></textarea>
-          <input type="file" class="w-full" />
-          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-md">${t.formBtn}</button>
-        </form>
-      </section>
-      <footer class="mt-10 border-t pt-6 text-sm text-gray-600 text-center">
-        <p><strong>${t.contact}</strong></p>
-        <p>${t.email}</p>
-        <p>${t.whatsapp}</p>
-        <p>${t.location}</p>
-      </footer>
-    `;
-  </script>
+    <div class="text-center my-6">
+      <a href="https://wa.me/972544621050" target="_blank"
+        class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full shadow-md transition">
+        ${t.whatsapp}
+      </a>
+    </div>
+
+    <section class="mt-12 bg-white rounded-xl p-6 shadow text-center">
+      <h2 class="text-xl font-bold mb-4">${t.about}</h2>
+      <p class="whitespace-pre-line text-gray-700 leading-relaxed">${t.aboutText}</p>
+    </section>
+
+    <footer class="mt-10 border-t pt-6 text-sm text-gray-600 text-center">
+      <p><strong>${t.contact}</strong></p>
+      <p>${t.email}</p>
+      <p>${t.phone}</p>
+      <p>${t.location}</p>
+    </footer>
+  `;
+}
+</script>
+
 </body>
 </html>
