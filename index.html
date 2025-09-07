@@ -1,226 +1,282 @@
 <!DOCTYPE html>
-<html lang="he" id="html-root">
+<html lang="he" dir="rtl"> <!-- Оставь lang="he" — при переводе на иврит это корректно -->
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>I.T.M.</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { background-color: #f3f4f6; }
-    .carousel-track {
-      display: flex;
-      gap: 1rem;
-      animation: scroll 30s linear infinite;
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>חזיתות מאווררות מאלומיניום ואלוקובונד בישראל | התקנה, ייצור, תכנון</title>
+
+  <!-- Основные SEO теги -->
+  <meta name="description" content="Проектирование, производство и монтаж вентилируемых фасадов из алюминия и Alucobond в Израиле. Лазерная резка, гибка панелей, сертифицированные подсистемы. Под ключ.">
+  <meta name="keywords" content="вентилируемые фасады, алюминиевые фасады, Alucobond Израиль, фасады под ключ, монтаж фасадов, производство фасадов, проектирование фасадов">
+  <meta name="author" content="IsraFacades">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="חזיתות מאווררות עשויות אלומיניום ואלוקובונד בישראל">
+  <meta property="og:description" content="Проектирование, производство и монтаж фасадов под ключ. Сертифицированные подсистемы, современный дизайн, многолетний опыт.">
+  <meta property="og:image" content="https://isratechmetal.site/images/banner-hero.jpg">
+  <meta property="og:url" content="https://isratechmetal.site/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Вентилируемые фасады Израиль">
+  <meta name="twitter:description" content="Алюминиевые фасады и Alucobond — проектирование, производство, монтаж. Под ключ.">
+  <meta name="twitter:image" content="https://isratechmetal.site/images/banner-hero.jpg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://isratechmetal.site/">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"IsraFacades",
+    "url":"https://isratechmetal.site/",
+    "logo":"https://isratechmetal.site/favicon.ico",
+    "image":"https://isratechmetal.site/images/banner-hero.jpg",
+    "description":"Проектирование, производство и монтаж вентилируемых фасадов из алюминия и Alucobond. Работаем по всему Израилю.",
+    "address":{
+      "@type":"PostalAddress",
+      "addressCountry":"IL"
+    },
+    "contactPoint":{
+      "@type":"ContactPoint",
+      "telephone":"+972-54-462-1050",
+      "contactType":"customer support",
+      "areaServed":"IL",
+      "availableLanguage":["he","ru","en"]
     }
-    .carousel-wrapper { overflow: hidden; direction: ltr; }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+  }
+  </script>
+
+  <!-- Tailwind (быстрая правка стилей). Для продакшна можно собрать свой CSS. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { background-color: #f9fafb; }
+    .section { padding: 3.5rem 1rem; }
+    .section-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; text-align: center; }
+    /* sticky WhatsApp button */
+    .whatsapp-sticky {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 60;
+    }
+    /* small screens: reduce hero height */
+    @media (max-width: 640px) {
+      .hero-height { height: 360px; }
+      .section { padding: 2rem 0.75rem; }
     }
   </style>
 </head>
+
 <body class="text-gray-800 font-sans leading-relaxed">
 
-<!-- Языки -->
-<div class="max-w-4xl mx-auto px-4 pt-4 text-right text-sm fixed top-4 right-4 z-50 bg-gray-100 rounded-lg p-2 shadow">
-  <a href="?lang=he" class="ml-4 text-blue-600 hover:underline">עברית</a>
-  <a href="?lang=en" class="ml-4 text-blue-600 hover:underline">English</a>
-  <a href="?lang=ru" class="text-blue-600 hover:underline">Русский</a>
-</div>
+  <!-- NOTE:
+       Страница отмечена dir="rtl" для Иврита.
+       Пока текст на русском — каждый текстовый блок обёрнут в <div dir="ltr">,
+       чтобы русский отображался корректно.
+       Когда переведёшь на иврит — просто УДАЛИ атрибут dir="ltr" у блоков
+       (или замени текст непосредственно внутри блока).
+  -->
 
-<!-- Контент -->
-<div id="content" class="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 bg-gray-100 shadow-xl rounded-2xl"></div>
+  <!-- HERO -->
 
-<script>
-const lang = new URLSearchParams(window.location.search).get("lang") || "he";
-document.getElementById("html-root").lang = lang;
-document.getElementById("html-root").dir = (lang === "he") ? "rtl" : "ltr";
+  <header class="relative hero-height w-full bg-cover bg-center flex items-center justify-center" style="background-image:url('images/banner-hero.jpg');">
+   
+ <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 text-center text-white p-6 max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">IsraTechMetal Facade</h1>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">חזיתות מודרניות לבניינים מודרניים</h1>
+      <p class="text-lg md:text-2xl mb-6">אנו מתכננים, מייצרים ומתקינים <strong>חזיתות מאווררות מוכנות מאלומיניום ואלוקובונד </strong> — עם אחריות איכות ולוחות זמנים מדויקים.</p>
 
-// 💬 ИВРИТ
-const heContent = `
-  <header class="text-center mb-6">
-    <img src="logo.png" alt="לוגו" class="h-48 w-48 mx-auto mb-4" />
-    <h1 class="text-4xl sm:text-6xl font-bold text-blue-800 mb-2">תכנון והנדסה צנרת</h1>
-    <p class="text-2xl sm:text-3xl text-gray-600 mt-6">שרטוטים, מודלים תלת־ממדיים וליווי ייצור</p>
+      <!-- CTA: WhatsApp + Телефон -->
+      <div class="flex items-center justify-center gap-4">
+        <a href="https://wa.me/972544621050" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-5 rounded-full shadow-lg transition"
+           aria-label="Связаться в WhatsApp">
+          <!-- WhatsApp SVG icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true">
+            <path d="M20.52 3.48A11.92 11.92 0 0012 .5C6.21.5 1.5 5.21 1.5 11c0 1.94.51 3.77 1.48 5.36L.5 23.5l7.39-2.03A11.94 11.94 0 0012 22.5c5.79 0 10.5-4.71 10.5-10.5 0-3.03-1.18-5.82-3.98-8.52zM12 20.5c-1.2 0-2.39-.29-3.44-.84l-.25-.14-4.39 1.21 1.21-4.28-.16-.27A9.44 9.44 0 012.5 11c0-5.25 4.25-9.5 9.5-9.5S21.5 5.75 21.5 11 17.25 20.5 12 20.5z"/><path d="M17.05 14.44c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.19.3-.73.97-.9 1.17-.17.19-.34.21-.64.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.51-1.78-1.69-2.09-.18-.31-.02-.48.13-.63.13-.13.3-.34.45-.51.15-.16.2-.28.3-.47.1-.19.05-.36-.02-.51-.07-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.44 0 1.44 1.03 2.83 1.18 3.03.15.19 2.04 3.12 4.95 4.37 2.91 1.25 2.91.83 3.44.78.53-.05 1.72-.7 1.96-1.37.24-.67.24-1.25.17-1.37-.07-.11-.27-.18-.57-.33z"/>
+          </svg>
+          <span>כתוב לוואטסאפ</span>
+        </a>
+
+        <a href="tel:+972544621050" class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-4 rounded-full shadow transition" aria-label="Позвонить">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5h2l2 5-2 2v3l4-.5 2 4 4-2 2-2 1-4-3-6H3z"/></svg>
+          התקשרו בטלפון
+        </a>
+      </div>
+    </div>
   </header>
 
-  <div class="text-center mb-6">
-    <p class="text-xl text-gray-700">אספקה מהירה — החל מ־3 ימי עבודה</p>
-  </div>
-
-  <section class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-center">
-    <div class="bg-blue-50 rounded-xl p-5 shadow-sm">
-      <h2 class="text-xl font-semibold text-blue-700 mb-2">שרטוטים איזומטריים (ISO)</h2>
-      <ul class="list-disc list-inside text-gray-700">
-        <li>שרטוטים איזומטריים ודיאגרמות מערכת</li>
-        <li>כתבי כמויות ומפרטים טכניים</li>
-        <li>ליווי התקנות באתר</li>
-        <li>עבודה עם STEP, DWG, PDF, DXF</li>
-      </ul>
+  <!-- УТП / преимущества -->
+  <section class="section bg-white">
+    <h2 class="section-title text-blue-800">היתרונות שלנו</h2>
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 text-center">
+      <div class="p-6 bg-blue-50 rounded-xl shadow">
+        <h3 class="font-semibold text-lg mb-2">עד הבורג האחרון</h3>
+        <p>תכנון, ייצור והתקנה - כל השלבים מבוצעים על ידי צוות אחד. האחריות על התוצאה היא אחידה.</p>
+      </div>
+      <div class="p-6 bg-green-50 rounded-xl shadow">
+        <h3 class="font-semibold text-lg mb-2">תת-מערכות מאושרות</h3>
+        <p>אנו משתמשים רק בתת-מערכות מוסמכות ומוכחות העומדות בתקני בטיחות.</p>
+      </div>
+      <div class="p-6 bg-yellow-50 rounded-xl shadow">
+        <h3 class="font-semibold text-lg mb-2">ניסיון וקנה מידה</h3>
+        <p>אלפי מטרים רבועים של חזיתות מותקנות וטונות של סוגריים מיוצרים – נתונים אמיתיים ומקרים.</p>
+      </div>
     </div>
-    <div class="bg-green-50 rounded-xl p-5 shadow-sm">
-      <h2 class="text-xl font-semibold text-green-700 mb-2">מידול תלת־ממד</h2>
-      <ul class="list-disc list-inside text-gray-700">
-        <li>מידול לפי P&ID, שרטוטים, סקיצות או תמונות</li>
-        <li>תכנון בסביבת BIM</li>
-        <li>יצירת ספריות רכיבים מותאמות</li>
-        <li>רמת פירוט: LOD 400</li>
-        <li>AutoCAD, SolidWorks, Navisworks</li>
+  </section>
+
+  <!-- Услуги -->
+  <section class="section bg-gray-50">
+    <h2 class="section-title text-blue-800">שירותים</h2>
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <article class="bg-white rounded-xl p-6 shadow">
+        <picture>
+          <source srcset="images/service-design.jpg" type="image/jpeg">
+          <img src="images/service-design.jpg" alt="Проектирование фасадов" class="w-full h-48 object-cover rounded mb-4" loading="lazy">
+        </picture>
+        <h3 class="font-bold text-lg mb-2">לעצב</h3>
+        <p>יצירת תיעוד עבודה, הדמיות תלת מימד וחישובים הנדסיים. הפתרונות מותאמים לאקלים בישראל ולדרישות הפרויקט.</p>
+      </article>
+
+      <article class="bg-white rounded-xl p-6 shadow">
+        <picture>
+          <source srcset="images/service-production.jpg" type="image/jpeg">
+          <img src="images/service-production.jpg" alt="Производство фасадов" class="w-full h-48 object-cover rounded mb-4" loading="lazy">
+        </picture>
+        <h3 class="font-bold text-lg mb-2">יצור</h3>
+        <p>ייצור עצמי של פאנלים ורכיבים מאלומיניום. חיתוך וכיפוף בלייזר בדיוק גבוה, ציפוי אבקה ואנודיזציה.</p>
+      </article>
+
+      <article class="bg-white rounded-xl p-6 shadow">
+        <picture>
+          <source srcset="images/service-install.jpg" type="image/jpeg">
+          <img src="images/service-install.jpg" alt="Монтаж фасадов" class="w-full h-48 object-cover rounded mb-4" loading="lazy">
+        </picture>
+        <h3 class="font-bold text-lg mb-2">התקנה</h3>
+        <p>התקנה מקצועית על תת-מערכות מאושרות. בקרת איכות קפדנית ועמידה בלוחות זמנים.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Виды фасадов -->
+  <section class="section bg-white">
+    <h2 class="section-title text-blue-800">סוגי חזיתות</h2>
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 items-start">
+      <div class="rounded-xl overflow-hidden shadow bg-gray-50">
+        <img src="images/facade-aluminum.jpg" alt="Алюминиевые фасады" class="w-full h-64 object-cover" loading="lazy">
+        <div class="p-4">
+          <h3 class="font-semibold mb-2">פאנלים חזיתיים מאלומיניום</h3>
+          <p>קל משקל, חזק, עמיד - בחירה אידיאלית עבור מבנים מודרניים.</p>
+        </div>
+      </div>
+      <div class="rounded-xl overflow-hidden shadow bg-gray-50">
+        <img src="images/facade-alucobond.jpg" alt="Фасады Alucobond" class="w-full h-64 object-cover" loading="lazy">
+        <div class="p-4">
+          <h3 class="font-semibold mb-2">אלוקובונד (קומפוזיט)</h3>
+          <p>פאנלים מרוכבים עם אפשרויות עיצוב רחבות ועמידות מצוינת בפני השפעות חיצוניות.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- УТП (детально) -->
+  <section class="section bg-gray-50">
+    <h2 class="section-title text-blue-800">הצעת מכירה ייחודית</h2>
+    <div class="max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed">
+      <p><strong>אנחנו קבלן קבלן במחזור מלא. </strong> משמעות הדבר היא איש קשר יחיד, הצעת מחיר אחת, לוח זמנים אחד לאספקה ​​והתקנה. שגיאות בצומת השלבים נמנעות, מועדי הביצוע נשלטים באופן מרכזי, והאחריות היא עלינו.</p>
+      <ul class="list-disc list-inside mt-4 text-right">
+        <li>קבלן יחיד במקום מבצעים רבים</li>
+        <li>צמצום זמן היישום על ידי סנכרון שלבים</li>
+        <li>הערכה שקופה וללא תשלומים נסתרים</li>
+        <li>בקרת איכות בכל שלב של הייצור וההתקנה</li>
       </ul>
     </div>
   </section>
 
-  <div class="text-center mt-12 mb-6">
-    <a href="https://wa.me/972544621050" target="_blank"
-       class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-7 rounded-full shadow-md transition">
-      צרו קשר
-    </a>
-  </div>
-
-  <section class="mt-12 bg-white rounded-xl p-5 text-sm text-gray-800 text-center">
-    <h2 class="text-2xl font-bold text-gray-900 mb-2">אודות החברה</h2>
-    <p class="whitespace-pre-line text-gray-700 leading-relaxed">
-חברת הנדסה המתמחה במידול תלת־ממדי של מערכות צנרת ומבני תמיכה למתקנים תעשייתיים. תחום הפעילות המרכזי הוא פיתוח תיעוד תכנוני, מודלים דיגיטליים וניתוחים הנדסיים עבור לקוחות בישראל ובעולם.
-
-העבודה מתבצעת באמצעות כלים מקצועיים: AutoCAD Plant 3D, Navisworks, SolidWorks, Tekla – המאפשרים יצירת מודלים מדויקים, שרטוטים איזומטריים, כתבי כמויות (BOQ) וספריות רכיבים מותאמות.
-
-החברה מבצעת חישובי חוזק סטטיים וסייסמיים למערכות צנרת ומבני מתכת — חשוב במיוחד באזורים עם פעילות סייסמית גבוהה.
-
-הפרויקטים מתוכננים ונלווים לאורך כל שלביהם – משלב התכנון ועד לביצוע בשטח. הגישה המעשית וההבנה המעמיקה של תהליכי ייצור מאפשרים לספק פתרונות הנדסיים אמינים, מדויקים וחסכוניים, בהתאם לתקנים בינלאומיים ומקומיים.
-
-
-    </p>
+  <!-- Преимущества -->
+  <section class="section bg-white">
+    <h2 class="section-title text-blue-800">יתרונות חזיתות אלומיניום</h2>
+    <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 text-gray-700 text-right">
+      <div class="p-4">
+        <h4 class="font-semibold mb-2">עֲמִידוּת</h4>
+        <p>הפאנלים עמידים בפני קורוזיה, שמש ולחות של האקלים הימי.</p>
+      </div>
+      <div class="p-4">
+        <h4 class="font-semibold mb-2">יעילות אנרגטית</h4>
+        <p>הפער המאוורר מפחית את אובדן החום ומפחית את העומס על מערכות HVAC.</p>
+      </div>
+      <div class="p-4">
+        <h4 class="font-semibold mb-2">נוף יוקרתי</h4>
+        <p>מבחר רחב של צבעים ומרקמים - חזית המדגישה את מעמדו של הנכס.</p>
+      </div>
+    </div>
   </section>
 
-  <footer class="mt-10 border-t pt-6 text-sm text-gray-600 text-center">
-    <p><strong>צור קשר:</strong></p>
-    <p>isratechmetal@gmail.com</p>
-    <p>054-462-10-50</p>
-    <p>עובדים בכל הארץ</p>
-  </footer>
-`;
+  <!-- О компании -->
+  <section class="section bg-gray-50">
+    <h2 class="section-title text-blue-800">אודות החברה</h2>
+    <div class="max-w-4xl mx-auto text-gray-700 text-right">
+      <p class="mb-4">IsraTechMetal Fasade מתמחה במחזור עבודה מלא על חזיתות מאווררות: החל מתכנון ועד להפעלה. במהלך השנים ביצענו עשרות פרויקטים ברחבי הארץ.</p>
 
-// 💬 АНГЛ + РУССКИЙ
-const contentData = {
-  en: {
-    title: 'Pipeline Design and Analysis',
-    subtitle: 'Drawings, 3D Models, and Production Support',
-    fast: 'Fast delivery — starting from 3 business days',
-    isoTitle: 'ISO Drawings',
-    iso: [
-      'Isometric pipeline drawings and diagrams',
-      'Bills of Quantities (BOQ) and technical specifications',
-      'On-site installation support',
-      'Formats: STEP, DWG, PDF, DXF'
-    ],
-    modelTitle: '3D Modeling',
-    model: [
-      'Modeling based on P&ID, drawings, sketches, photos',
-      'BIM-compliant design',
-      'Custom component library development',
-      'Levels of Development LOD 400',
-      'Software: AutoCAD, SolidWorks, Navisworks'
-    ],
-    about: 'About the Company',
-    aboutText: `An engineering firm specializing in 3D modeling of piping systems and support structures for industrial facilities. The core focus is the development of project documentation, digital models, and engineering analysis for clients in Israel and abroad.
+      <ul class="list-disc list-inside text-right">
+        <li><strong>הִתנַסוּת: </strong>יותר מ-10 שנים בתעשיית פתרונות חזיתות.</li>
+        <li><strong>סוּלָם: </strong>אלפי מטרים רבועים של חזיתות מותקנות.</li>
+        <li><strong>הֲפָקָה: </strong>טונות של סוגריים, לוחות ולוחות מיוצרים.</li>
+        <li><strong>קְבוּצָה: </strong> מהנדסים, מעצבים, צוותי התקנה בעלי ניסיון מוכח.</li>
+      </ul>
 
-We utilize professional tools such as AutoCAD Plant 3D, Navisworks, SolidWorks, and Tekla, enabling the creation of accurate 3D models, isometric drawings, BOQs, and custom component libraries.
-
-The company performs static and seismic strength calculations for piping systems and steel structures — a critical service for industrial facilities located in seismically active regions.
-
-Projects are managed throughout the entire lifecycle — from design to on-site implementation. A practical approach and deep understanding of manufacturing processes allow us to deliver reliable, precise, and cost-effective engineering solutions in accordance with local and international standards`,
-    contact: 'Contact:',
-    phone: '+972-54-462-1050',
-    email: 'isratechmetal@gmail.com',
-    whatsapp: 'Contact us on WhatsApp',
-    location: 'Работаем по всему Израилю'
-  },
-  ru: {
-    title: 'Проектирование и расчёты трубопроводов',
-    subtitle: 'Чертежи, 3D-модели и сопровождение производства',
-    fast: '📦 Быстрая поставка — от 3 рабочих дней',
-    isoTitle: 'Чертежи ISO',
-    iso: [
-          'Изометрические чертежи и схемы трубопровода',
-          'BOQ и спецификации',
-          'Сопровождение монтажа на объекте',
-          'Форматы: STEP, DWG, PDF, DXF'
-    ],
-    modelTitle: '3D-моделирование',
-    model: [
-          'Моделирование по P&ID, чертежам, эскизам, фото',
-          'Проектирование в среде BIM',
-          'Составление библиотек',
-          'Уровень детализации LOD 400',
-          'AutoCAD, SolidWorks, Navisworks'
-    ],
-    about: 'О компании',
-    aboutText: `Инжиниринговая компания, специализирующаяся на моделировании трубопроводных систем и опорных конструкций для промышленных объектов. Основное направление — разработка проектной документации, цифровых моделей и расчётов для предприятий в Израиле и за рубежом.  
-
-В работе используются профессиональные инструменты: AutoCAD Plant 3D, Navisworks, SolidWorks, Tekla, что позволяет создавать точные 3D-модели, изометрические чертежи, спецификации (BOQ), а также собственные библиотеки компонентов.  
-
-Компания выполняет статические и сейсмические расчёты прочности трубопроводов и металлоконструкций, что особенно актуально для промышленных объектов в сейсмоактивных регионах.  
-
-Проекты реализуются с учётом всех этапов: от проектирования до монтажа. Практический подход и понимание производственных процессов позволяют предлагать надёжные и экономически обоснованные инженерные решения, соответствующие международным и местным стандартам.`,
-    contact: 'Контакты:',
-    phone: '+972-54-462-1050',
-    email: 'isratechmetal@gmail.com',
-    whatsapp: 'Свяжитесь с нами',
-    location: 'Работаем по всему Израилю'
-  }
-};
-
-if (lang === 'he') {
-  document.getElementById("content").innerHTML = heContent;
-} else {
-  const t = contentData[lang] || contentData["en"];
-  document.getElementById("content").innerHTML = `
-    <header class="text-center mb-6">
-      <img src="logo.png" alt="Logo" class="h-48 w-48 mx-auto mb-4" />
-      <h1 class="text-3xl sm:text-5xl font-bold text-blue-800 mb-2">${t.title}</h1>
-      <p class="text-2xl sm:text-3xl text-gray-600 mt-6">${t.subtitle}</p>
-    </header>
-
-    <div class="text-center mb-6">
-      <p class="text-xl text-gray-700">${t.fast}</p>
+      <figure class="mt-6">
+        <img src="images/company-team.jpg" alt="Наша команда" class="w-full h-64 object-cover rounded" loading="lazy">
+        <figcaption class="text-sm text-gray-500 mt-2">אתר ייצור וצוות הרכבה.</figcaption>
+      </figure>
     </div>
+  </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-center">
-      <div class="bg-blue-50 rounded-xl p-5 shadow-sm">
-        <h2 class="text-xl font-semibold text-blue-700 mb-2">${t.isoTitle}</h2>
-        <ul class="list-disc list-inside text-gray-700">
-          ${t.iso.map(item => `<li>${item}</li>`).join('')}
-        </ul>
-      </div>
-      <div class="bg-green-50 rounded-xl p-5 shadow-sm">
-        <h2 class="text-xl font-semibold text-green-700 mb-2">${t.modelTitle}</h2>
-        <ul class="list-disc list-inside text-gray-700">
-          ${t.model.map(item => `<li>${item}</li>`).join('')}
-        </ul>
-      </div>
-    </section>
+  <!-- Примеры / Галерея -->
+  <section class="section bg-white">
+    <h2 class="section-title text-blue-800">דוגמאות לעבודות</h2>
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-4">
+      <img src="images/1.jpg" alt="Объект 1" class="w-full h-48 object-cover rounded shadow" loading="lazy">
+      <img src="images/2.jpg" alt="Объект 2" class="w-full h-48 object-cover rounded shadow" loading="lazy">
+      <img src="images/3.jpg" alt="Объект 3" class="w-full h-48 object-cover rounded shadow" loading="lazy">
 
-    <div class="text-center mt-12 mb-6">
-      <a href="https://wa.me/972544621050" target="_blank"
-        class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full shadow-md transition">
-        ${t.whatsapp}
-      </a>
     </div>
+  </section>
 
-    <section class="mt-12 bg-white rounded-xl p-6 shadow text-center">
-      <h2 class="text-xl font-bold mb-4">${t.about}</h2>
-      <p class="whitespace-pre-line text-gray-700 leading-relaxed">${t.aboutText}</p>
-    </section>
+  <!-- Контакты -->
+<footer class="bg-gray-900 text-gray-300 py-8 text-center">
+  <p class="mb-2"><strong>IsraTechMetal Facade </strong>כל הזכויות שמורות. © 2025 </p>
+  <p>Email: israfacades@gmail.com | Тел: +972-54-462-1050</p>
+</footer>
 
-    <footer class="mt-10 border-t pt-6 text-sm text-gray-600 text-center">
-      <p><strong>${t.contact}</strong></p>
-      <p>${t.email}</p>
-      <p>${t.phone}</p>
-      <p>${t.location}</p>
-    </footer>
-  `;
-}
-</script>
+  <!-- Стикер / плавающая кнопка WhatsApp (mobile friendly) -->
+
+
+  <!-- Bitrix24 Widget -->
+  <script>
+    (function(w,d,u){
+      var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);
+      var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+    })(window,document,'https://cdn.bitrix24.com/b34724459/crm/site_button/loader_2_9achys.js');
+  </script>
+
+  <!-- Аналитика (подсказки) -->
+  <!--
+    - Google Analytics 4: вставь сюда gtag.js с твоим measurement ID
+    - Facebook/Meta Pixel: вставь код пикселя здесь
+    - Рекомендуется подключить Google Tag Manager и управлять тегами через него
+  -->
 
 </body>
 </html>
